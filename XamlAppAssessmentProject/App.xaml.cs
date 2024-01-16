@@ -1,12 +1,13 @@
-﻿namespace XamlAppAssessmentProject
+﻿using XamlAppAssessmentProject.Views;
+
+namespace XamlAppAssessmentProject
 {
     public partial class App : Application
     {
-        public App()
+        public App(VideosView videosView)
         {
-            InitializeComponent();
-
-            MainPage = new AppShell();
+            InitializeComponent(); 
+            MainPage = videosView;
         }
     }
 }

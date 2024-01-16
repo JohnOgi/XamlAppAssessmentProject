@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <x:String x:Key="VideoServiceUrl">https://assets.acmeaom.com/interview-project/uwpvideos.json</x:String>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

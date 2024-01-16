@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+            xmlns:local="clr-namespace:XamlAppAssessmentProject"
+            xmlns:vm="clr-namespace:XamlAppAssessmentProject.ViewModels"
+            x:Class="XamlAppAssessmentProject.Views.VideosView">
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior EventName="Appearing" Command="{Binding AppearingCommand}" />
+    </ContentPage.Behaviors>
+    <Grid BackgroundColor="DarkGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label Text="XAML Application Assessment Project" Margin="5" FontSize="Title" />
+        <ActivityIndicator IsRunning="{Binding IsLoading}" Grid.Row="1" />
+        <ScrollView Grid.Row="1">
+            <FlexLayout 
+                AlignContent="Start" 
+                AlignItems="Start" 
+                Direction="Row" 
+                Wrap="Wrap" 
+                HorizontalOptions="FillAndExpand"
+                BindableLayout.ItemsSource="{Binding Videos}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Grid WidthRequest="200" Margin="2">
+                            <!--
+                            <Button Text="{Binding Title}" 
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:VideosViewModel}}, Path=VideoDetailsCommand}" 
+                                    CommandParameter="{Binding}"/>
+                            -->
+                            <Button Text="{Binding Title}" Clicked="Button_Clicked"/>
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
